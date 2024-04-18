@@ -3,12 +3,20 @@ import React, { useState } from 'react';
 const Form = () => {
   const [color, setColor] = useState('');
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('prevent default');
+  };
 
   return (
     <section className='container'>
       <h4>color generator</h4>
       <form className='color-form' onSubmit={handleSubmit}>
+        <input
+          type='color'
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
+        />
         <input
           type='text'
           value={color}
